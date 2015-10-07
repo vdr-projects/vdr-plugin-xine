@@ -1,0 +1,393 @@
+
+OVERVIEW
+~~~~~~~~
+Introduction
+A note about VDPAU
+Getting a recent xine
+Patching xine's source
+Building xine
+Testing xine
+Patching VDR
+Makefile settings
+Building vdr-xine
+Xine VDR version mismatch
+Testing vdr-xine
+Using budget cards
+Remote learning mode
+Using full featured cards
+Additional software
+Last but not least
+
+
+INTRODUCTION
+~~~~~~~~~~~~
+As you can read these lines, you've successfully extracted the tar archive of
+VDR plugin xine. The plugin supplies VDR with an output device in software by
+using xine. It's most useful if you don't own a DVB card which can be directly
+connected to a TV set, or if you want to watch HDTV (MPEG2/H.264) content which
+typically cannot be displayed by such a card.
+
+Usually, the contents of this package should be below the PLUGINS subdirectory
+of VDR. I've installed the source of VDR in directory "/soft/src/VDR", so the
+files of this package reside in directory "/soft/src/VDR/PLUGINS/src/xine".
+
+
+A NOTE ABOUT VDPAU
+~~~~~~~~~~~~~~~~~~
+VDPAU is a new API for hardware assisted video decoding. If you plan to use
+VDPAU, you will need to choose different sources for xine-lib. To stay with
+xine-lib-1.1 you can choose the VDPAU development fork named xine-vdpau which
+is available via svn and go on with patching it for vdr-xine:
+
+	svn co svn://jusst.de/xine-vdpau
+
+In case you would like to use xine-lib-1.2 then you need to patch in VDPAU
+support. You'll find updated patches against xine-lib-1.2 here:
+
+	http://jusst.de/vdpau
+
+The patches are named like xine-lib-1.2-vdpau-r157.diff.bz2 where r157 for
+example indicates the vdpau svn revision this patch is based on.
+
+
+GETTING A RECENT XINE
+~~~~~~~~~~~~~~~~~~~~~
+To compile and use this plugin, you must get a recent Hg/CVS version of xine.
+When you are going to use xine-lib-1.2 then you can most often find binary
+packages for your distribution. Additionally you'll have to install a suitable
+devel-package too. After installing these packages, just read on in section
+PATCHING VDR.
+
+To retrieve xine via Hg/CVS, please go to the project homepage of xine (which
+is http://xine.sf.net). On the main page, look for downloads and then for CVS
+or Mercurial (Hg) respectively.
+Follow the instructions on this page and checkout module "xine-lib". You also
+need a recent version of a GUI for xine, so checkout module "xine-ui". I've 
+checked out both modules and they reside in directory "/soft/src/xine-lib" 
+and "/soft/src/xine-ui" respectively.
+My Hg/CVS commands were:
+
+  hg clone http://hg.debian.org/hg/xine-lib/xine-lib
+
+  cvs -d:pserver:anonymous@xine.cvs.sourceforge.net:/cvsroot/xine login
+  cvs -z9 -d:pserver:anonymous@xine.cvs.sourceforge.net:/cvsroot/xine co xine-ui
+
+NOTE: As space permits you'll also find archives of both modules on my homepage
+      which you might use if you don't have access to CVS servers. Just choose
+      the most recent archives for the most recent vdr-xine plugin.
+
+NOTE: The above command and my archives on the homepage supply xine-lib-1.1.x,
+      which needs to be patched as mentioned below. If you like, you may want
+      to try xine-lib-1.2, which contains already everything regarding vdr-xine
+      and therefore doesn't need to be patched.
+
+
+PATCHING XINE'S SOURCE
+~~~~~~~~~~~~~~~~~~~~~~
+Next, you have to extend xine-lib to support a media resource location (mrl)
+type named "vdr:". Change to the parent directory of module "xine-lib", e. g.
+in my case "/soft/src". Then apply the patches supplied with this distribution
+(in case you are using xine-lib-1.2, there is no need for patching).
+
+The patches will add new source files to xine-lib's source tree and will add
+keybindings to xine-ui for supporting my plugin's remote functionality. I use
+the following commands for patching:
+
+  patch -dxine-lib -p1 < /soft/src/VDR/PLUGINS/src/xine/patches/xine-lib.patch
+  patch -dxine-ui -p1 < /soft/src/VDR/PLUGINS/src/xine/patches/xine-ui.patch
+
+NOTE: It might well be that some of the patch files are empty if my changes
+      have been ported back into xine's CVS repository. But I didn't want to
+      remove those empty files as it might break some build scripts which
+      people created to build xine.
+
+
+BUILDING XINE
+~~~~~~~~~~~~~
+Now, it's time to build xine-lib. Change back to the directory of module
+"xine-lib", e. g. "/soft/src/xine-lib", and run "./autogen.sh".
+
+Please don't call "configure" directly at this stage, even if you don't use
+the CVS source. Doing so will miss necessary modifications to the Makefiles
+and finally lead to not building the new plugins!
+
+"./autogen.sh" will need some additional tools which must have at least a
+certain minimum version to successfully build xine. If you look into the
+head of "./autogen.sh" then you'll find the following information:
+
+	# Minimum value required to build
+	WANT_AUTOMAKE_1_8=1 export WANT_AUTOMAKE_1_8
+	WANT_AUTOMAKE=1.8 export WANT_AUTOMAKE
+	AUTOMAKE_MIN=1.8.0
+	AUTOCONF_MIN=2.59
+	LIBTOOL_MIN=1.4.0
+
+On my openSUSE 11.1 I use the following versions:
+
+	automake-1.10.1-4.286
+	autoconf-2.63-1.136
+	libtool-2.2.6-1.35
+
+If you have trouble running "./autogen.sh" respectively the hereby called 
+configure please consider upgrading the above mentioned tools.
+
+Calling "./autogen.sh" will create all the files which configure needs, and
+will finally run configure. If you need special options for configure, you can
+specify them as command arguments to autogen.sh.
+
+If you intend to use vdr-xine for watching H.264 channels, I highly recommend
+to install a recent FFmpeg and to add the switch "--with-external-ffmpeg" when
+compiling xine-lib (it's the default since xine-lib-1.1.15).
+
+When building xine-ui I suggest the following configure options:
+
+  --enable-vdr-keys
+
+    Adds VDR's commands to xine's keybinding dialog. You're then able to assign
+    keys in xine to VDR's commands and therefore control VDR by pressing the
+    appropriate keys in xine's window.
+
+For example I run the following command for building xine-ui:
+
+  ./autogen.sh --prefix=/soft/xine-ui-cvs --enable-vdr-keys
+
+As xine supports a lot of media, it also requires a lot of libraries to compile
+all modules. Please see the file "config.log" and the xine documentation to get
+all the required components for the plugins you want to build. After configure
+has been run (automatically from autogen.sh), the commands "make" and "make
+install" should provide you with a recent version of module "xine-lib". 
+
+After that, you can go to the directory of module "xine-ui" and repeat the
+steps for building the standard GUI for xine.
+
+
+TESTING XINE
+~~~~~~~~~~~~
+Please test the newly compiled xine with a sample MPEG file, to see whether it
+works. Be careful, that not any previously versions of xine respectively
+plugins get loaded. Use the option "--verbose=2" and verify that the output
+of xine contains a line which indicates loading "xineplug_vdr.so".
+
+
+PATCHING VDR
+~~~~~~~~~~~~
+There may be further patches available on my homepage that enhance VDR for best
+cooperation with vdr-xine. For further details about the patches please have a
+look into the corresponding README file on my homepage. I highly recommend to
+apply at least some of them.
+
+
+MAKEFILE SETTINGS
+~~~~~~~~~~~~~~~~~
+Before you go on to compile vdr-xine, please make sure that you've installed
+xine-lib already. Otherwise you'll get a lot of errors due to missing header
+files respectively missing structure members if there are already old versions
+of some header files available!
+
+Then please have a look at my plugin's "Makefile" and locate "INCLUDES", 
+"VDR_XINE_FIFO_DIR" and "VDR_XINE_SET_VIDEO_WINDOW".
+
+As the plugin depends on xine's data structures of it's companion, it is 
+necessary to include xine's header files. For this to work, INCLUDES must
+contain the include path of xine's header files. Therefore, pkg-config is
+asked to supply the path as it was set when xine was compiled. Make sure
+that pkg-config reports the include directory of your previously installed
+xine-lib by running the following command in a shell:
+
+  pkg-config --cflags libxine
+
+Depending on your setup, you may need to adapt the environment variable
+PKG_CONFIG_PATH to change the order in which pkgconfig directories are
+queried to achive the goal. One reason for getting a wrong directory 
+reported is that a xine-lib-devel package is still installed. Simply
+uninstall it and try building vdr-xine again.
+
+The plugin will create its fifos (which are used for data exchange with xine)
+below directory "VDR_XINE_FIFO_DIR" (e. g. "/tmp/vdr-xine"). It's up to
+you to create and maintain any parent directories of the directory you specify
+here (in this case "/tmp"); the plugin will itself try to create and remove
+the final directory (in this case "vdr-xine"). So you may need to create the
+vdr-xine directy too, if the plugin is not allowed to do it on its own at
+runtime.
+
+NOTE: xine's autoscan button "VDR" currently expects "VDR_XINE_FIFO_DIR" to
+      be set to directory "/tmp/vdr-xine"!
+
+If you are using the yaepg plugin and have patched VDR to support it, then you
+might also enable VDR_XINE_SET_VIDEO_WINDOW. vdr-xine will then access the new
+OSD member vidWin to extract position and size of the video window and ask xine
+to position the video accordingly within the original frame.
+
+
+BUILDING VDR-XINE
+~~~~~~~~~~~~~~~~~
+Just go to VDR's source directory and type "make plugins". This should compile
+my plugin and "xineplayer". For more information about xineplayer please have
+a look into MANUAL.
+
+
+XINE VDR VERSION MISMATCH
+~~~~~~~~~~~~~~~~~~~~~~~~~
+In the case you've got a compilation error which asked you to read this
+section, please try the following to solve this issue. Otherwise skip this
+section.
+
+- Make sure that the above mentioned pkg-config command shows you the
+  correct location where xine-lib's include files reside.
+- Make sure that there exists xine/vdr.h below this directory. In the
+  case that it does not exist and you are building xine-lib-1.1.x please
+  check whether you've applied the xine-lib.patch as mentioned above.
+- When the file exists and you still get this error then you're most likely
+  trying to mix different versions of vdr-xine and xine-lib. Make sure that
+  you've installed a matching version of xine-lib. You may also need to
+  upgrade vdr-xine to use a recent version of xine-lib.
+- Try to clean the build if the error persists after any changes like that:
+  make plugins-clean
+
+
+TESTING VDR-XINE
+~~~~~~~~~~~~~~~~
+For a first run, go to the VDR directory (e. g. "/soft/src/VDR") and issue the
+following command:
+
+  ./runvdr "'-Pxine -r'"
+
+This should start VDR and have it load my plugin, but if this is the first time
+that you use my plugin it will also abort immediately with an error message
+like this:
+
+  vdr-xine: error: couldn't open '/video/plugins/xine/noSignal4x3.mpg'!
+  vdr-xine: error: couldn't open '/video/plugins/xine/noSignal.mpg'!
+  vdr-xine: error: couldn't open '/video/plugins/xine/noSignal16x9.mpg'!
+  vdr-xine: error: couldn't open '/video/plugins/xine/noSignal.mpg'!
+
+The exact path depends on VDR's directory for config files (typically '/video'
+but see VDR's manual). To get vdr-xine working just create the directory
+"xine" below "plugins" and copy the contents of the directory "data" (located
+in my plugin's source directory) into the new directory. After that retry
+starting VDR again as mentioned above.
+
+If no errors are reported, six fifos should now exist below "VDR_XINE_FIFO_DIR"
+(e. g. "/tmp/vdr-xine"), named "stream", "stream.control", "stream.result"
+and "stream.event" as well as "external.control" and "external.result". All of
+them have a size of 0 bytes.
+
+At any time, you can use xine to connect to the above mentioned fifo "stream"
+(while the "external" fifos are used by xineplayer). The MRL may look like 
+this, depending on the "VDR_XINE_FIFO_DIR" at compile time:
+
+  vdr://tmp/vdr-xine/stream
+
+So either type something like
+
+  xine vdr://tmp/vdr-xine/stream
+
+or just hit the autoscan button "VDR" in xine.
+
+You should now see a beautiful "vdr-xine" logo on screen!
+
+
+USING BUDGET CARDS
+~~~~~~~~~~~~~~~~~~
+If your system only has budget DVB cards (i. e. cards that don't supply an 
+MPEG decoder and rely on the CPU to decode the MPEG stream), then loading
+vdr-xine will supply VDR with a "software device" with a software MPEG decoder.
+VDR will choose this device as output device by default.
+
+Depending on your previous usage of VDR, it might well be that VDR has entered
+remote learning mode and you may see an OSD which invites you to press keys.
+Please see the VDR manual for more information.
+
+Where VDR's configuration suits your receiving equipment, it is most likely
+that VDR enters transfer mode and you'll see live TV in xine!
+
+
+REMOTE LEARNING MODE
+~~~~~~~~~~~~~~~~~~~~
+vdr-xine's internal remote (enabled by the "-r" switch) behaves different to
+VDR's other remotes as there is no key learning necessary within VDR as the
+keys have to be assinged in xine's keybinding dialog.
+
+NOTE: Please don't worry about entries like the following in VDR's logfile
+      as there is currently no other way to skip key learning for a still
+      unknown remote: "ERROR: remote control XineRemote not ready!"
+
+Any other remote (e. g. VDR's built in keyboard remote) will make VDR start in
+remote learning mode if there are still no keys learnt in remote.conf for that
+kind of remote or when no remote.conf exists so far.
+
+To successfully enter remote learning mode, you'll have to connect xine to VDR
+immediately after starting VDR. Otherwise you'll miss VDR's first prompt (which
+is visible for about 10 seconds per remote) and VDR will either abort learning
+mode or go on to learn the next remote.
+
+NOTE: It may take about 10 seconds after pressing a remote key in "Phase 1" of
+      remote learning mode until VDR goes on to "Phase 2".
+
+
+USING FULL FEATURED CARDS
+~~~~~~~~~~~~~~~~~~~~~~~~~
+If your system is equipped with a full featured card (i. e. a card that has
+its own MPEG decoder), you'll see in xine nothing more than "vdr-xine". This
+is because VDR has chosen the hardware MPEG decoder over the software MPEG
+decoder, so the output device is your full featured card. To get the output to
+xine, you'll have to go to VDR's OSD setup menu and choose the highest device
+available, which should be vdr-xine's software device. 
+
+
+ADDITIONAL SOFTWARE
+~~~~~~~~~~~~~~~~~~~
+To be able to have VDR grab the image currently displayed in xine, you'll
+need the programs "y4mscaler", "y4mtoppm" and "pnmtojpeg".
+
+On my system I use the following versions:
+
+	y4mscaler	9.0
+	y4mtoppm	part of mjpegtools-1.8.0
+	pnmtojpeg	part of netpbm-10.26.44-98.16
+
+By default, vdr-xine assumes to find these utilities on your PATH. But you can
+specify the absolute path to them by setting the Makefile variables
+VDR_XINE_Y4MSCALER, VDR_XINE_Y4MTOPPM and VDR_XINE_PNMTOJPEG.
+
+
+LAST BUT NOT LEAST
+~~~~~~~~~~~~~~~~~~
+After you can see VDR's OSD in xine, you've done everything well. Now go on
+and setup xine and my plugin to suit your needs. See the file "MANUAL" for more
+information, e. g. how to bind keys in xine to VDR commands.
+
+As mentioned above you've copied some data files to ".../plugins/xine". Some of
+them were named "noSignal*x*.mpg" and is responsible for displaying "vdr-xine"
+on screen. After you've setup everything properly you might be annoyed of this
+message whenever you switch channels or when listening to radio stations.
+
+Therefore I've supplied additional files "noSignal*x*-completelyBlack.mpg"
+which show a completely black screen instead. If you prefer a black screen
+instead of "vdr-xine" just move "noSignal*x*-completelyBlack.mpg" over the
+files named "noSignal*x*.mpg".
+
+Alternatively you may try files like "noSignal4x3-smallTextAtBottom.mpg" or
+"noSignal4x3-old.mpg".
+
+BTW: the ...4x3... or ...16x9... indicate which aspect ratio should be assumed
+     for the files. vdr-xine tries to load both specific files and falls back
+     to the file name "noSignal.mpg" when a specific file does not exist.
+     vdr-xine will then choose the file to display depending on VDR's DVB setup
+     option video format.
+
+In case none of the files suits, you may create your own files. Just provide
+a suitable PNG image named noSignal*x*.png and run mkNoSignal.sh. Keep in mind
+that the PNG image must be true color even if it just shows grey content and
+it should be of a size which matches your TV channels e. g. something like
+720x576 or 704x576. Furthermore it shouldn't be a too complex image as the
+resulting MPG files must not exceed 64 kB.
+
+BTW: mkNoSignal.sh requires the following tools on your path:
+
+	pngtopnm	part of netpbm-10.26.44-98.16
+	ppmtoy4m	part of mjpegtools-1.8.0
+	mpeg2enc	part of mjpegtools-1.8.0
+
+Have fun!
+

@@ -1,0 +1,141 @@
+# VDR plugin language source file.
+# Copyright (C) 2007 Klaus Schmidinger <kls@cadsoft.de>
+# This file is distributed under the same license as the VDR package.
+# Vladimír Bárta <vladimir.barta@k2atmitec.cz>, 2006
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xine_SK\n"
+"Report-Msgid-Bugs-To: Reinhard Nissl <rnissl@gmx.de>\n"
+"POT-Creation-Date: 2011-03-13 14:22+0100\n"
+"PO-Revision-Date: 2009-11-02 10:43+0100\n"
+"Last-Translator: Milan Hrala <hrala.milan@gmail.com>\n"
+"Language-Team: Slovak <hrala.milan@gmail.com>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-2\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Slovak\n"
+"X-Poedit-Country: SLOVAKIA\n"
+
+msgid "X11 overlay"
+msgstr "X11 prekrývanie"
+
+msgid "Blend clipped"
+msgstr "Zastrihnuté zmie¹a»"
+
+msgid "Blend scaled LQ"
+msgstr "Zastrihnuté zmie¹a» LQ"
+
+msgid "Blend scaled HQ"
+msgstr "Zastrihnuté zmie¹a» HQ"
+
+msgid "Blend scaled SHQ"
+msgstr "Zastrihnuté zmie¹a» SHQ"
+
+msgid "Blend scaled Auto"
+msgstr "Automatické splynutie merítka"
+
+msgid "No"
+msgstr "Nie"
+
+msgid "Yes (by hardware)"
+msgstr "Áno  (podµa hardware)"
+
+msgid "Yes (by software)"
+msgstr "Áno  (podµa software)"
+
+msgid "Ignore"
+msgstr "Ignorova»"
+
+msgid "Execute"
+msgstr "Vykona»"
+
+msgid "Simulate"
+msgstr "Simulova»"
+
+msgid "Live-TV SD video buffer [frames]"
+msgstr "Live-TV SD video vyrovnávacia pamä» [rámcov]"
+
+msgid "Live-TV HD video buffer [frames]"
+msgstr "Live-TV HD video vyrovnávacia pamä» [rámcov]"
+
+msgid "Live-TV audio buffer [frames]"
+msgstr "Live-TV audio vyrovnávacia pamä» [rámcov]"
+
+msgid "Buffer hysteresis [frames]"
+msgstr "Spozdenie vyrovnávacej pamäte [rámce]"
+
+msgid "Buffer monitoring duration [s]"
+msgstr "Doba sledovania vyrovnávacej pamäte [s]"
+
+msgid "Buffer monitoring mode"
+msgstr "Re¾im monitorovania vyrovnávacej pamäti"
+
+msgid "Once"
+msgstr "iba jeden raz"
+
+msgid "Continuous"
+msgstr "Na pokraèovanie"
+
+msgid "OSD display mode"
+msgstr "Re¾im zobrazenia OSD"
+
+msgid "OSD gamma correction [ 123 => 1.23 ]"
+msgstr "OSD gama korekcia [123 => 1,23]"
+
+msgid "OSD extent X"
+msgstr "OSD rozsah X"
+
+msgid "OSD extent Y"
+msgstr "OSD rozsah Y"
+
+msgid "4:3 image zoom X [%]"
+msgstr "obraz 4:3 zväè¹ený v X [%]"
+
+msgid "4:3 image zoom Y [%]"
+msgstr "obraz 4:3 zväè¹ený v Y [%]"
+
+msgid "16:9 image zoom X [%]"
+msgstr "obraz 16:9 zväè¹ený v X [%]"
+
+msgid "16:9 image zoom Y [%]"
+msgstr "obraz 16:9 zväè¹ený v Y [%]"
+
+msgid "Audio mode"
+msgstr "Re¾im zvuku"
+
+msgid "Dolby off"
+msgstr "Dolby vypnuté"
+
+msgid "Dolby on"
+msgstr "Dolby zapnuté"
+
+msgid "Control xine's volume"
+msgstr "Ovládanie xine hlasitosti"
+
+msgid "Muting"
+msgstr "Ticho"
+
+msgid "Get primary device when xine connects"
+msgstr "Získanie spojenia primárneho ovládaèa xine"
+
+msgid "Yes"
+msgstr "Áno"
+
+msgid "Support semi transparent colors"
+msgstr "Podpora priesvitných farieb"
+
+msgid "Connection interacts with EIT scanner"
+msgstr "Spojenie s ETI snímaèom"
+
+#, c-format
+msgid "Switching primary DVB to %s..."
+msgstr "Prepnutie na primárne DVB %s..."
+
+#, c-format
+msgid "Switched primary DVB back from %s"
+msgstr "Prepína hlavné DVB spä» z %s"
+
+msgid "Software based playback using xine"
+msgstr "Softvér na prehrávanie pomocou xine"

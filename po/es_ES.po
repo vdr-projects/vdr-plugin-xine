@@ -1,0 +1,139 @@
+# VDR plugin language source file.
+# Copyright (C) 2007 Klaus Schmidinger <kls@cadsoft.de>
+# This file is distributed under the same license as the VDR package.
+# Ruben Nunez Francisco <ruben.nunez@tang-it.com>, 2002
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: VDR 1.5.7\n"
+"Report-Msgid-Bugs-To: Reinhard Nissl <rnissl@gmx.de>\n"
+"POT-Creation-Date: 2011-03-13 14:22+0100\n"
+"PO-Revision-Date: 2007-08-29 21:10+0200\n"
+"Last-Translator: Ruben Nunez Francisco <ruben.nunez@tang-it.com>\n"
+"Language-Team: <vdr@linuxtv.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-15\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "X11 overlay"
+msgstr ""
+
+msgid "Blend clipped"
+msgstr ""
+
+msgid "Blend scaled LQ"
+msgstr ""
+
+msgid "Blend scaled HQ"
+msgstr ""
+
+msgid "Blend scaled SHQ"
+msgstr ""
+
+msgid "Blend scaled Auto"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "Yes (by hardware)"
+msgstr ""
+
+msgid "Yes (by software)"
+msgstr ""
+
+msgid "Ignore"
+msgstr ""
+
+msgid "Execute"
+msgstr ""
+
+msgid "Simulate"
+msgstr ""
+
+msgid "Live-TV SD video buffer [frames]"
+msgstr ""
+
+msgid "Live-TV HD video buffer [frames]"
+msgstr ""
+
+msgid "Live-TV audio buffer [frames]"
+msgstr ""
+
+msgid "Buffer hysteresis [frames]"
+msgstr ""
+
+msgid "Buffer monitoring duration [s]"
+msgstr ""
+
+msgid "Buffer monitoring mode"
+msgstr ""
+
+msgid "Once"
+msgstr ""
+
+msgid "Continuous"
+msgstr ""
+
+msgid "OSD display mode"
+msgstr ""
+
+msgid "OSD gamma correction [ 123 => 1.23 ]"
+msgstr ""
+
+msgid "OSD extent X"
+msgstr ""
+
+msgid "OSD extent Y"
+msgstr ""
+
+msgid "4:3 image zoom X [%]"
+msgstr ""
+
+msgid "4:3 image zoom Y [%]"
+msgstr ""
+
+msgid "16:9 image zoom X [%]"
+msgstr ""
+
+msgid "16:9 image zoom Y [%]"
+msgstr ""
+
+msgid "Audio mode"
+msgstr ""
+
+msgid "Dolby off"
+msgstr ""
+
+msgid "Dolby on"
+msgstr ""
+
+msgid "Control xine's volume"
+msgstr ""
+
+msgid "Muting"
+msgstr ""
+
+msgid "Get primary device when xine connects"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "Support semi transparent colors"
+msgstr ""
+
+msgid "Connection interacts with EIT scanner"
+msgstr ""
+
+#, c-format
+msgid "Switching primary DVB to %s..."
+msgstr ""
+
+#, c-format
+msgid "Switched primary DVB back from %s"
+msgstr ""
+
+msgid "Software based playback using xine"
+msgstr ""

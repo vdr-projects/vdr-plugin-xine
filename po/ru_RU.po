@@ -1,0 +1,142 @@
+# VDR plugin language source file.
+# Copyright (C) 2007 Klaus Schmidinger <kls@cadsoft.de>
+# This file is distributed under the same license as the VDR package.
+# Vyacheslav Dikonov <sdiconov@mail.ru>, 2004
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: VDR 1.5.7\n"
+"Report-Msgid-Bugs-To: Reinhard Nissl <rnissl@gmx.de>\n"
+"POT-Creation-Date: 2011-03-13 14:22+0100\n"
+"PO-Revision-Date: 2008-01-29 13:00+0100\n"
+"Last-Translator: Oleg Roitburd <oleg@roitburd.de>\n"
+"Language-Team:  <vdr@linuxtv.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-5\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "X11 overlay"
+msgstr "X11 Наложение"
+
+msgid "Blend clipped"
+msgstr "Обрезать"
+
+msgid "Blend scaled LQ"
+msgstr "Подгонка LQ"
+
+msgid "Blend scaled HQ"
+msgstr "Подгонка HQ"
+
+msgid "Blend scaled SHQ"
+msgstr "Подгонка SHQ"
+
+msgid "Blend scaled Auto"
+msgstr "Автоматическая подгонка"
+
+msgid "No"
+msgstr "Нет"
+
+msgid "Yes (by hardware)"
+msgstr "Да (компьютером)"
+
+msgid "Yes (by software)"
+msgstr "Да (программно)"
+
+msgid "Ignore"
+msgstr "Игнорировать"
+
+msgid "Execute"
+msgstr "Выполнить"
+
+msgid "Simulate"
+msgstr "Симулировать"
+
+#, fuzzy
+msgid "Live-TV SD video buffer [frames]"
+msgstr "Live-TV буфферы [фрэймы]"
+
+#, fuzzy
+msgid "Live-TV HD video buffer [frames]"
+msgstr "Live-TV буфферы [фрэймы]"
+
+#, fuzzy
+msgid "Live-TV audio buffer [frames]"
+msgstr "Live-TV буфферы [фрэймы]"
+
+msgid "Buffer hysteresis [frames]"
+msgstr "Гистерезис буфера [фреймы]"
+
+msgid "Buffer monitoring duration [s]"
+msgstr "Длительность мониторинга буфера [s]"
+
+msgid "Buffer monitoring mode"
+msgstr "Режим мониторинга буфера"
+
+msgid "Once"
+msgstr "Однажды"
+
+msgid "Continuous"
+msgstr "Постоянный"
+
+msgid "OSD display mode"
+msgstr "Режим отображения OSD"
+
+msgid "OSD gamma correction [ 123 => 1.23 ]"
+msgstr "Изменение гаммы OSD [ 123 => 1.23 ]"
+
+msgid "OSD extent X"
+msgstr ""
+
+msgid "OSD extent Y"
+msgstr ""
+
+msgid "4:3 image zoom X [%]"
+msgstr "4:3 скалирование изображения X [%]"
+
+msgid "4:3 image zoom Y [%]"
+msgstr "4:3 скалирование изображения Y [%"
+
+msgid "16:9 image zoom X [%]"
+msgstr "16:9 скалирование изображения X [%]"
+
+msgid "16:9 image zoom Y [%]"
+msgstr "16:9 скалирование изображения Y [%]"
+
+msgid "Audio mode"
+msgstr "Аудио режим"
+
+msgid "Dolby off"
+msgstr "Dolby выкл."
+
+msgid "Dolby on"
+msgstr "Dolby вкл."
+
+msgid "Control xine's volume"
+msgstr "Управление xine звуком"
+
+msgid "Muting"
+msgstr "Без звука"
+
+msgid "Get primary device when xine connects"
+msgstr "Получить первичное устройство когда xine соединено"
+
+msgid "Yes"
+msgstr "Да"
+
+msgid "Support semi transparent colors"
+msgstr "Поддержка полупрозрачных красок"
+
+msgid "Connection interacts with EIT scanner"
+msgstr "Интерактивное подключение с EIT сканером"
+
+#, c-format
+msgid "Switching primary DVB to %s..."
+msgstr "Переключение первичного DVB устройства на %s..."
+
+#, c-format
+msgid "Switched primary DVB back from %s"
+msgstr "Первичное устройство DVB переключено назад с %s"
+
+msgid "Software based playback using xine"
+msgstr "Программное воспроизведение, используя xine"

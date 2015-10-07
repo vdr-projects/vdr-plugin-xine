@@ -1,0 +1,139 @@
+# SOME DESCRIPTIVE TITLE. 
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER 
+# This file is distributed under the same license as the PACKAGE package. 
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR. 
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: Reinhard Nissl <rnissl@gmx.de>\n"
+"POT-Creation-Date: 2011-03-13 14:22+0100\n"
+"PO-Revision-Date: 2009-09-21 22:36+0800\n"
+"Last-Translator: NanFeng <nfgx@21cn.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "X11 overlay"
+msgstr "X11的覆蓋"
+
+msgid "Blend clipped"
+msgstr "混合剪輯"
+
+msgid "Blend scaled LQ"
+msgstr "混合縮放LQ"
+
+msgid "Blend scaled HQ"
+msgstr "混合縮放HQ"
+
+msgid "Blend scaled SHQ"
+msgstr "混合縮放SHQ"
+
+msgid "Blend scaled Auto"
+msgstr "自動混合縮放"
+
+msgid "No"
+msgstr "否"
+
+msgid "Yes (by hardware)"
+msgstr "確認(硬件模式)"
+
+msgid "Yes (by software)"
+msgstr "確認(軟件模式)"
+
+msgid "Ignore"
+msgstr "忽略"
+
+msgid "Execute"
+msgstr "執行"
+
+msgid "Simulate"
+msgstr "仿真"
+
+msgid "Live-TV SD video buffer [frames]"
+msgstr "直播電視標清視頻緩衝器[框架]"
+
+msgid "Live-TV HD video buffer [frames]"
+msgstr "直播電視高清視頻緩衝器[框架]"
+
+msgid "Live-TV audio buffer [frames]"
+msgstr "直播電視音頻緩衝區[框架]"
+
+msgid "Buffer hysteresis [frames]"
+msgstr "緩衝區滯後[框架]"
+
+msgid "Buffer monitoring duration [s]"
+msgstr "緩衝區監測時間[s]"
+
+msgid "Buffer monitoring mode"
+msgstr "緩衝區監控模式"
+
+msgid "Once"
+msgstr "一次"
+
+msgid "Continuous"
+msgstr "連續"
+
+msgid "OSD display mode"
+msgstr "菜單顯示模式"
+
+msgid "OSD gamma correction [ 123 => 1.23 ]"
+msgstr "菜單伽瑪校正[ 123 => 1.23 ]"
+
+msgid "OSD extent X"
+msgstr "菜單廣度X"
+
+msgid "OSD extent Y"
+msgstr "菜單廣度Y"
+
+msgid "4:3 image zoom X [%]"
+msgstr "4:3影像變焦X [%]"
+
+msgid "4:3 image zoom Y [%]"
+msgstr "4:3影像變焦Y [%]"
+
+msgid "16:9 image zoom X [%]"
+msgstr "16:9影像變焦X [%]"
+
+msgid "16:9 image zoom Y [%]"
+msgstr "16:9影像變焦Y [%]"
+
+msgid "Audio mode"
+msgstr "音頻模式"
+
+msgid "Dolby off"
+msgstr "杜比關閉"
+
+msgid "Dolby on"
+msgstr "杜比打開"
+
+msgid "Control xine's volume"
+msgstr "控制XINE的音量"
+
+msgid "Muting"
+msgstr "靜音"
+
+msgid "Get primary device when xine connects"
+msgstr "主要設備，只要獲得xine的連接"
+
+msgid "Yes"
+msgstr "是"
+
+msgid "Support semi transparent colors"
+msgstr "支持半透明顏色"
+
+msgid "Connection interacts with EIT scanner"
+msgstr "與轉型期掃描儀連接交互"
+
+#, c-format
+msgid "Switching primary DVB to %s..."
+msgstr "切換主的DVB到%s..."
+
+#, c-format
+msgid "Switched primary DVB back from %s"
+msgstr "切換主DVB回到%s"
+
+msgid "Software based playback using xine"
+msgstr "基於軟件回放使用的XINE播放器"

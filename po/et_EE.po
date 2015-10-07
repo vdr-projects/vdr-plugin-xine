@@ -1,0 +1,142 @@
+# VDR plugin language source file.
+# Copyright (C) 2007 Klaus Schmidinger <kls@cadsoft.de>
+# This file is distributed under the same license as the VDR package.
+# Arthur Konovalov <kasjas@hot.ee>, 2004
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: VDR 1.5.7\n"
+"Report-Msgid-Bugs-To: Reinhard Nissl <rnissl@gmx.de>\n"
+"POT-Creation-Date: 2011-03-13 14:22+0100\n"
+"PO-Revision-Date: 2007-08-29 21:10+0200\n"
+"Last-Translator: Arthur Konovalov <kasjas@hot.ee>\n"
+"Language-Team: <vdr@linuxtv.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-13\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "X11 overlay"
+msgstr "overlay (X11)"
+
+msgid "Blend clipped"
+msgstr "lõigatud"
+
+msgid "Blend scaled LQ"
+msgstr "skaleeritud (LQ)"
+
+msgid "Blend scaled HQ"
+msgstr "skaleeritud (HQ)"
+
+msgid "Blend scaled SHQ"
+msgstr "skaleeritud (SHQ)"
+
+msgid "Blend scaled Auto"
+msgstr "skaleeritud (auto)"
+
+msgid "No"
+msgstr "ei"
+
+msgid "Yes (by hardware)"
+msgstr "jah (raualine)"
+
+msgid "Yes (by software)"
+msgstr "jah (tarkvaraline)"
+
+msgid "Ignore"
+msgstr "eira"
+
+msgid "Execute"
+msgstr "soorita"
+
+msgid "Simulate"
+msgstr "simuleeri"
+
+#, fuzzy
+msgid "Live-TV SD video buffer [frames]"
+msgstr "Live-TV puhver [freimi]"
+
+#, fuzzy
+msgid "Live-TV HD video buffer [frames]"
+msgstr "Live-TV puhver [freimi]"
+
+#, fuzzy
+msgid "Live-TV audio buffer [frames]"
+msgstr "Live-TV puhver [freimi]"
+
+msgid "Buffer hysteresis [frames]"
+msgstr "Puhvri hüsterees [freimi]"
+
+msgid "Buffer monitoring duration [s]"
+msgstr "Puhvri monitooringu kestus [s]"
+
+msgid "Buffer monitoring mode"
+msgstr "Puhvri monitooringu moodus"
+
+msgid "Once"
+msgstr "üks kord"
+
+msgid "Continuous"
+msgstr "pidevalt"
+
+msgid "OSD display mode"
+msgstr "Ekraanimenüü moodus"
+
+msgid "OSD gamma correction [ 123 => 1.23 ]"
+msgstr "Gammakorrektsioon [123=>1.23]"
+
+msgid "OSD extent X"
+msgstr ""
+
+msgid "OSD extent Y"
+msgstr ""
+
+msgid "4:3 image zoom X [%]"
+msgstr "4:3 kujutuse suum X [%]"
+
+msgid "4:3 image zoom Y [%]"
+msgstr "4:3 kujutuse suum Y [%]"
+
+msgid "16:9 image zoom X [%]"
+msgstr "16:9 kujutuse suum X [%]"
+
+msgid "16:9 image zoom Y [%]"
+msgstr "16:9 kujutuse suum Y [%]"
+
+msgid "Audio mode"
+msgstr "Dolbyheli"
+
+msgid "Dolby off"
+msgstr "väljas"
+
+msgid "Dolby on"
+msgstr "sees"
+
+msgid "Control xine's volume"
+msgstr "Helitugevuse kontroll"
+
+msgid "Muting"
+msgstr "Vaigistus"
+
+msgid "Get primary device when xine connects"
+msgstr "Esmase seadme automaatne ühendamine"
+
+msgid "Yes"
+msgstr "jah"
+
+msgid "Support semi transparent colors"
+msgstr "Poolläbipaistvate värvide tugi"
+
+msgid "Connection interacts with EIT scanner"
+msgstr "Ühenduse koosoime EIT skanneriga"
+
+#, c-format
+msgid "Switching primary DVB to %s..."
+msgstr "Esmase DVB seadme %s ümberlülitamine..."
+
+#, c-format
+msgid "Switched primary DVB back from %s"
+msgstr "Esmane DVB seade lülitatud tagasi %s-st"
+
+msgid "Software based playback using xine"
+msgstr "Xine baasil taasesitusseade"
