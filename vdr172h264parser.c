@@ -456,7 +456,7 @@ namespace H264
               }
           catch (cException *e) {
               if (!syncing) // suppress typical error messages while syncing
-                 esyslog(e->Message());
+                 esyslog("%s", (const char *)e->Message());
               delete e;
               }
           }
