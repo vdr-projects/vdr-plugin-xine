@@ -1200,7 +1200,11 @@ while (Length >= TS_SIZE)
       int pid = TsPid(Data);
       if (pid == 0)
         patPmtParser.ParsePat(Data, TS_SIZE);
+#if VDRVERSNUM < 10733
       else if (pid == patPmtParser.PmtPid())
+#else
+      else if (patPmtParser.IsPmtPid(pid))
+#endif
         patPmtParser.ParsePmt(Data, TS_SIZE);
       else if (pid == patPmtParser.Vpid())
       {
