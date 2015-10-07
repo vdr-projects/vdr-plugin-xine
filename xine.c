@@ -16,7 +16,7 @@
 
 
 
-static const char *VERSION        = "0.9.4";
+static const char *VERSION        = "0.9.5";
 static const char *DESCRIPTION    = tr("Software based playback using xine");
 //static const char *MAINMENUENTRY  = "xine - Toggle prebuffer setting";
 
