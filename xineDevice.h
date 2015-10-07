@@ -162,7 +162,14 @@ namespace PluginXine
 #else    
     void OnFreeOsd(cOsd *const osd);
 #endif
-
+#if APIVERSNUM >= 10733
+    virtual cRect CanScaleVideo(const cRect &Rect, int Alignment = taCenter);
+    virtual void ScaleVideo(const cRect &Rect = cRect::Null);
+    const cRect & GetScaleRect();
+  private:
+    cRect vidWinRect;
+  public:
+#endif // APIVERSNUM >= 10733
     cXineLib m_xineLib;
     cMutex m_osdMutex;
 

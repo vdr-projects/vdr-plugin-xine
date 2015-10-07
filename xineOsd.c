@@ -105,11 +105,20 @@ namespace PluginXine
 
 #else
 
+#if APIVERSNUM >= 10733
+
+    // scale to the size and position stored by the last call to cDevice::CanScaleVideo
+    m_xineDevice.ScaleVideo(m_xineDevice.GetScaleRect());
+
+#else
+
 #ifdef SET_VIDEO_WINDOW
     
     m_xineLib.SetVideoWindow(maxOsdWidth, maxOsdHeight, vidWin, dontOptimize);
     
 #endif    
+
+#endif // APIVERSNUM >= 10733
     
     int videoLeft   = frameLeft;
     int videoTop    = frameTop;
@@ -175,6 +184,7 @@ namespace PluginXine
 
   cXineOsd::~cXineOsd()
   {
+
 #if APIVERSNUM < 10509
     HideOsd();
 #else
@@ -410,12 +420,20 @@ namespace PluginXine
     int maxOsdWidth, maxOsdHeight;
     GetMaxOsdSize(maxOsdWidth, maxOsdHeight);
 
+#if APIVERSNUM >= 10733
+
+    // scale to the size and position stored by the last call to cDevice::CanScaleVideo
+    m_xineDevice.ScaleVideo(m_xineDevice.GetScaleRect());
+
+#else
 #ifdef SET_VIDEO_WINDOW
     
     m_xineLib.SetVideoWindow(maxOsdWidth, maxOsdHeight, vidWin);
 
 #endif    
     
+#endif // APIVERSUM >= 10733
+
     int videoLeft   = -1;
     int videoTop    = -1;
     int videoWidth  = -1;
