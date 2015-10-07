@@ -498,7 +498,7 @@ if (!head)
 }
       }
 
-      while (cPixmapMemory *pm = RenderPixmaps())
+      while (cPixmapMemory *pm = dynamic_cast<cPixmapMemory*>(RenderPixmaps()))
       {
 if (!head)
 {
@@ -518,7 +518,11 @@ if (!head)
 );
 */
         m_pRawOsd->Copy(pm, pm->DrawPort().Shifted(-pm->DrawPort().Point()), pm->ViewPort().Point());
-        delete pm; 
+#if APIVERSNUM >= 20110
+        DestroyPixmap(pm);
+#else
+        delete pm;
+#endif
       }
     }
     else if (m_pRawOsd)

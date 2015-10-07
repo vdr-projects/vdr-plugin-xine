@@ -300,19 +300,14 @@ namespace PluginXine
 //#endif
   }
 
-  void cXineDevice::TrickSpeed(int Speed)
-  {
-    TrickSpeed(Speed, false);
-  }
-
-  void cXineDevice::TrickSpeed(int Speed, bool IBP)
+  void cXineDevice::TrickSpeed(int Speed, bool Forward)
   {
     f = false;
     ts = Speed;
 
     xfprintf(stderr, "TrickSpeed: %d\n", Speed);
     m_xineLib.execFuncTrickSpeedMode(lastCmdWasClear);
-    m_xineLib.execFuncSetSpeed(100.0 / Speed * (IBP ? 12 : 1));
+    m_xineLib.execFuncSetSpeed(100.0 / Speed);
     m_xineLib.execFuncWait();
     m_xineLib.freeze(false);
     m_xineLib.pause(false);

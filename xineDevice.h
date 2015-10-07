@@ -50,8 +50,7 @@ namespace PluginXine
     virtual bool CanReplay(void) const;
     virtual bool SetPlayMode(ePlayMode PlayMode);
     virtual bool HasIBPTrickSpeed(void);
-    virtual void TrickSpeed(int Speed, bool IBP);
-    virtual void TrickSpeed(int Speed);
+    virtual void TrickSpeed(int Speed, bool Forward);
     virtual void Clear(void);
     virtual void Play(void);
     virtual void Freeze(void);
